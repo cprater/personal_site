@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ChrispraterNet</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application"%>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="wrapper">
+	<div class="replacement">
+		<%= yield %>
+	</div>
+		<div class="footer">
+			<h5 class="copyright">&copy; 2013 Chris Prater Don't Need No Dang Copyright. Just Kidding, All Rights Reserved.</h5>
+		</div>
+</div>
+
+</body>
+</html>
