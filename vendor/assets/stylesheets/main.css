@@ -1,0 +1,106 @@
+body{
+	background: #D1D1D1;
+	word-wrap: break-word;
+}
+
+.center{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 12em;
+}
+
+
+.wrapper{
+	margin-left: auto;
+	margin-right: auto;
+	border-left: 6em solid white;
+	border-right: 6em solid white;
+	border-bottom: 3em solid white;
+	padding: 1em;
+}
+
+a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #594749;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #910D1F;
+}
+
+.sidebar {
+
+	float: left;
+	max-width: 30%;
+}
+
+#selfie{
+	max-width: 100%;
+	height: auto;
+}
+
+.content { 
+	text-align: left;
+	float: right;
+	max-width: 70%;	
+}
+
+.intro {
+	margin: 0 0.25em;
+}
+
+.footer { 
+	clear: both;
+	text-align: center;
+}
+
+ul.contact_list{
+	list-style: none;
+	margin: 0;
+}
+
+ul.contact_list li{
+	float: left;
+	margin: 0.50em;
+
+}
+
+.content div {
+	margin: 5em;
+}
+
+.categories {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+td {
+	padding: 0 1em;
+}
+
+.skills tr td {
+	padding-bottom: 0.5em;
+}
+
+
+
+.projects tr:first-child td:last-child{
+	padding-bottom: 1em;
+}
+
+
+
+.icon{
+	width: 3em;
+	height: 3em;
+	margin: 0 auto;
+	display: block;
+}
+
+#dogeify {
+	font-size: large;
+	float: right;
+}
