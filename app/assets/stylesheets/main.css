@@ -1,10 +1,12 @@
-body{
-	color: #C9C9C7;
-	word-wrap: break-word;
+.intro {
+	text-align: right;
+	list-style: none;
 }
 
-h2:hover {
-	cursor: pointer;
+body{
+	font-family: 'Raleway', 'sans-serif';
+	color: #C9C9C7;
+	word-wrap: break-word;
 }
 
 .center{
@@ -23,17 +25,18 @@ h2:hover {
 	border-right: 6em solid white;
 	border-bottom: 3em solid white;
 	padding: 1em;
+	cursor: default;
 }
 
 a {
 	text-decoration: none;
 	font-weight: bold;
-	color: #594749;
+	color: #910D1F;
 }
 
 a:hover {
 	text-decoration: underline;
-	color: #910D1F;
+	
 }
 
 .sidebar {
@@ -42,6 +45,7 @@ a:hover {
 }
 
 #selfie{
+	float: right;
 	max-width: 100%;
 	height: auto;
 }
@@ -63,6 +67,7 @@ a:hover {
 }
 
 ul.contact_list{
+	float: right;
 	list-style: none;
 	margin: 0;
 }
@@ -81,6 +86,10 @@ ul.contact_list li{
 	color: black;
 }
 
+.category-title {
+	color: #096659;
+}
+
 .categories {
 	text-decoration: none;
 	font-weight: bold;
@@ -94,8 +103,6 @@ td {
 	padding-bottom: 0.5em;
 }
 
-
-
 .projects tr:first-child td:last-child{
 	padding-bottom: 1em;
 }
@@ -108,6 +115,14 @@ td {
 	visibility: visible;
 }
 
+.quick-bio{
+	color:black;
+}
+
+.quick-bio strong{
+	color: #910D1F;
+}
+
 .icon{
 	width: 3em;
 	height: 3em;
@@ -116,6 +131,11 @@ td {
 }
 
 #dogeify {
+	color: #C9C9C7;
 	font-size: large;
 	float: right;
+}
+
+#dogeify:hover {
+	color: #910D1F;
 }
