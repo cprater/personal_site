@@ -17,7 +17,7 @@
 .sidebar {
 	float: left;
 	max-width: 100%;
-	text-align: center;
+	padding: 0 33%;
 }
 
 
@@ -32,7 +32,7 @@ ul.contact_list{
 }
 
 .icon {
-	@include icon-styling(3em);
+	@include icon-styling(4em);
 }
 
 #dogeify {
