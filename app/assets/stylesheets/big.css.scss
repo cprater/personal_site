@@ -1,0 +1,43 @@
+
+.intro {
+	text-align: right;
+	list-style: none;
+}
+
+.sidebar {
+	float: left;
+	max-width: 30%;
+}
+
+#selfie{
+	float: right;
+	max-width: 100%;
+	height: auto;
+}
+
+.intro {
+	margin: 0 0.25em;
+	color: $unactive-link-color;
+}
+
+ul.contact_list{
+	@include contact-list-floats;
+	li {
+		@include contact-list-item-floats;
+	}
+}
+
+
+.quick-bio{
+	color: $active-font-color;
+}
+
+.quick-bio strong{
+	color: #910D1F;
+}
+
+.icon{
+	@include icon-styling(3em);
+	
+	&:hover {box-shadow: 0 0 2px black;};
+}

@@ -1,0 +1,40 @@
+.intro {
+	display: none;
+}
+
+.quick-bio {
+	display: none;
+}
+
+#selfie {
+	display: none;
+}
+
+.content {
+	max-width: 100%
+}
+
+.sidebar {
+	float: left;
+	max-width: 100%;
+	text-align: center;
+}
+
+
+ul.contact_list{
+	margin: 0 auto;
+	display: block;
+	max-width: 100%;
+	@include contact-list-floats;
+	li {
+		@include contact-list-item-floats;
+	}
+}
+
+.icon {
+	@include icon-styling(3em);
+}
+
+#dogeify {
+	margin: 0 auto;
+}
