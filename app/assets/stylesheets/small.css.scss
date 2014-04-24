@@ -18,17 +18,28 @@
 	display: none;
 }
 
+.wrapper {
+	border: none;
+}
+
 .content {
-	max-width: 100%
+	max-width: 100%;
+	font-size: 1em;
+	text-align: center;
+
+	.section{
+		margin: 2em 0;
+
+		table{
+			margin: 1em auto;
+			text-align: left;
+		}
+	}
 }
 
 .sidebar {
 	float: left;
 	max-width: 100%;
-}
-
-.content {
-	font-size: 2em;
 }
 
 ul.contact_list{
