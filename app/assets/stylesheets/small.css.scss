@@ -40,12 +40,12 @@
 .sidebar {
 	float: left;
 	max-width: 100%;
+	margin: 0 5%;
 }
 
 ul.contact_list{
-	margin: 0 auto;
-	display: block;
-	max-width: 100%;
+	margin: 0 30%;
+	
 	@include contact-list-floats;
 	li {
 		@include contact-list-item-floats;
@@ -54,5 +54,9 @@ ul.contact_list{
 
 .icon {
 	@include icon-styling(9em);
+}
+
+.category-title {
+	font-size: 4em;
 }
 
