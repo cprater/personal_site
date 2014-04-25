@@ -16,8 +16,11 @@
 @import "colors";
 @import "base";
 
+
 @media (min-width: 1224px){
 	@import "big";
+	$tile-size: 50px;
+	@import "simon-says";
 }
 @media (max-width: 1224px){
 	@import "small";
