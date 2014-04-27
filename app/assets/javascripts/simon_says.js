@@ -12,6 +12,7 @@ var Game = function(board){
 		var _this = gameBoard[index];
 		var color = $(_this).attr('id');
 		$(_this).css('background', color);
+		
 	}
 
 	function hidePiece(index){
@@ -24,12 +25,8 @@ var Game = function(board){
 	}
 
 	function displayPattern(pattern){
-		// var i = 0;
 		for (i = 0; i < pattern.length; i++){
-			setTimeout(function(){
-				showPiece(pattern[i]);
-				// hidePiece(pattern[i]);
-			}, 1000);
+			showPiece(pattern[i]);
 		}
 
 	}
@@ -37,7 +34,7 @@ var Game = function(board){
 	this.play = function(){
 		positions.push(randomInt());
 		for(i =0; i < positions.length; i++){
-			displayPattern([1,2,3]);
+			setInterval(displayPattern([1,2,3]), 1000);
 		}
 		
 	};
