@@ -12,11 +12,14 @@
 	border: 2px solid black;
 }
 
+.game{
+	margin: auto 40%;
+}
+
 .tile {
-	@include tile-styling($tile-size);	
+	@include tile-styling($tile-size);
 }
 
 .game-board {	
 	@include board-styling(($tile-size * 3) + 6);
 }
-
