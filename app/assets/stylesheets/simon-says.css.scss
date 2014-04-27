@@ -1,0 +1,22 @@
+@mixin tile-styling($size){
+	width: $size;
+	height: $size;
+	float: left;
+	border: 1px solid black;
+}
+
+@mixin board-styling($size){
+	max-width: $size;
+	max-height: $size;
+	display: inline-block;
+	border: 2px solid black;
+}
+
+.tile {
+	@include tile-styling($tile-size);	
+}
+
+.game-board {	
+	@include board-styling(($tile-size * 3) + 6);
+}
+
