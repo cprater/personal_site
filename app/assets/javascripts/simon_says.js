@@ -79,11 +79,16 @@ var Game = function(board){
 	}
 
 	function gameSteps(){
+		displayScore();
 		move = 0;
 		guesses = [];
 		positions.push(randomInt());
 		triggerPattern = setInterval(displayPattern, 1000);
 		trackGuesses();
+	}
+
+	function displayScore(){
+		$('#score').html(positions.length);
 	}
 
 	this.play = function(){
