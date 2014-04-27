@@ -6,6 +6,13 @@ var Game = function(board){
 		return Math.floor(Math.random() * (8 - 0 + 1)) + 0;
 	}
 
+	function flashPiece(index){
+		showPiece(index);
+		setTimeout(function(){
+			hidePiece(index);
+		}, 200);
+	}
+
 	function showPiece(index){
 		var _this = gameBoard[index];
 		var color = $(_this).attr('id');
@@ -38,21 +45,32 @@ var Game = function(board){
 		hidePattern(i);
 		checkToStopLoop();
 	}
+
+	function checkGuesses(){
+		for(i=0; i < guesses.length; i++){
+			if (guesses[i] != positions[i])
+				console.log("bad");
+			else
+				Game.play();
+		}
+	}
 	
+	function trackGuesses(){
+		$('.tile').unbind().on('click', function(){
+			flashPiece($(this).index());
+			guesses.push($(this).index());
+			checkGuesses();
+		});
+	}
+
 	this.play = function(){
 		move = 0;
+		guesses = [];
 		positions.push(randomInt());
 		triggerPattern = setInterval(displayPattern, 1000);
+		trackGuesses();
 	};
 
-	this.trackGuesses = function(){
-		guesses = [];
-		$(document).on('click', '.tile', function(){
-			guesses.push($(this).attr('id'));
-			
-			console.log(guesses);
-		});
-	};
 
 	
 };
@@ -66,7 +84,7 @@ $(function(){
 		e.preventDefault();
 
 		game.play();
-		game.trackGuesses();
+	
 		
 	});
 
