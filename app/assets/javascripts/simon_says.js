@@ -23,21 +23,21 @@ var Game = function(board){
 		// }, 1000);
 	}
 
-	function displayPattern(index){
+	function displayPattern(pattern){
 		// var i = 0;
-		// if (i++ < pattern.length){
-			showPiece(positions[index]);
+		for (i = 0; i < pattern.length; i++){
 			setTimeout(function(){
-				hidePiece(positions[index]);
+				showPiece(pattern[i]);
+				// hidePiece(pattern[i]);
 			}, 1000);
-		// }
+		}
 
 	}
 	
 	this.play = function(){
 		positions.push(randomInt());
 		for(i =0; i < positions.length; i++){
-			displayPattern(i);
+			displayPattern([1,2,3]);
 		}
 		
 	};
