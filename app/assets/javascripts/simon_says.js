@@ -1,46 +1,95 @@
 var Game = function(board){
 	var gameBoard = board;
-	var move = 0;
 	positions = [];
 
 	function randomInt(){
 		return Math.floor(Math.random() * (8 - 0 + 1)) + 0;
 	}
 
+	function flashPiece(index){
+		showPiece(index);
+		setTimeout(function(){
+			hidePiece(index);
+		}, 200);
+	}
+
+	function flashBoard(){
+		for(i=0; i < gameBoard.length; i++){
+			flashPiece(i);
+		}
+	}
+
 	function showPiece(index){
-		console.log("show");
 		var _this = gameBoard[index];
 		var color = $(_this).attr('id');
 		$(_this).css('background', color);
 	}
 
 	function hidePiece(index){
-		console.log("hide");
 		var _this = gameBoard[index];
 		var color = $('.game-board').css('background-color');
-		// setTimeout(function(){
-			$(_this).css('background-color', color);
-		// }, 1000);
+		$(_this).css('background-color', color);
 	}
 
-	function displayPattern(pattern){
-		// var i = 0;
-		for (i = 0; i < pattern.length; i++){
-			setTimeout(function(){
-				showPiece(pattern[i]);
-				// hidePiece(pattern[i]);
-			}, 1000);
-		}
+	function hidePattern(index){
+		setTimeout(function(){
+			hidePiece(positions[index]);
+		},1000);
+	}
 
+	function displayPattern(){
+		showPiece(positions[move]);
+		var i = move;
+		hidePattern(i);
+		checkToStopLoop();
+	}
+
+	function checkToStopLoop(){
+		if (move >= positions.length)
+			clearInterval(triggerPattern);
+		else
+			move ++;
+	}
+
+	function checkGuesses(){
+		for(i=0; i < guesses.length; i++){
+			if (guesses[i] != positions[i]){
+				flashBoard();
+				console.log("wrong");
+				resetGame();
+				setTimeout(gameSteps(), 1000);
+			}
+			if (i == positions.length -1){
+				console.log('correct! restart cycle');
+				gameSteps();
+			}
+		}
 	}
 	
-	this.play = function(){
+	function trackGuesses(){
+		$('.tile').unbind().on('click', function(){
+			flashPiece($(this).index());
+			guesses.push($(this).index());
+			checkGuesses();
+		});
+	}
+
+	function resetGame(){
+		positions = [];
+	}
+
+	function gameSteps(){
+		move = 0;
+		guesses = [];
 		positions.push(randomInt());
-		for(i =0; i < positions.length; i++){
-			displayPattern([1,2,3]);
-		}
-		
+		triggerPattern = setInterval(displayPattern, 1000);
+		trackGuesses();
+	}
+
+	this.play = function(){
+		gameSteps();
 	};
+
 
 	
 };
@@ -54,7 +103,6 @@ $(function(){
 		e.preventDefault();
 
 		game.play();
-		
 	});
 
 });
