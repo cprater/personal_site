@@ -1,6 +1,5 @@
 var Game = function(board){
 	var gameBoard = board;
-	var move = 0;
 	positions = [];
 
 	function randomInt(){
@@ -8,7 +7,6 @@ var Game = function(board){
 	}
 
 	function showPiece(index){
-		console.log("show");
 		var _this = gameBoard[index];
 		var color = $(_this).attr('id');
 		$(_this).css('background', color);
@@ -16,26 +14,33 @@ var Game = function(board){
 	}
 
 	function hidePiece(index){
-		console.log("hide");
 		var _this = gameBoard[index];
 		var color = $('.game-board').css('background-color');
-		// setTimeout(function(){
-			$(_this).css('background-color', color);
-		// }, 1000);
+		$(_this).css('background-color', color);
 	}
 
-	function displayPattern(pattern){
-		for (i = 0; i < pattern.length; i++){
-			showPiece(pattern[i]);
-		}
+	function hidePattern(index){
+		setTimeout(function(){
+			hidePiece(positions[index]);
+		},1000);
+	}
 
+	function displayPattern(){
+		showPiece(positions[move]);
+		var i = move;
+		hidePattern(i);
+			
+		if (move >= positions.length)
+			clearInterval(triggerPattern);
+		else
+			move ++;
 	}
 	
 	this.play = function(){
+		move = 0;
 		positions.push(randomInt());
-		for(i =0; i < positions.length; i++){
-			setInterval(displayPattern([1,2,3]), 1000);
-		}
+		
+		triggerPattern = setInterval(displayPattern, 1000);
 		
 	};
 
