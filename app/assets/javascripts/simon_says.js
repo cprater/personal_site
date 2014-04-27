@@ -13,11 +13,16 @@ var Game = function(board){
 		}, 200);
 	}
 
+	function flashBoard(){
+		for(i=0; i < gameBoard.length; i++){
+			flashPiece(i);
+		}
+	}
+
 	function showPiece(index){
 		var _this = gameBoard[index];
 		var color = $(_this).attr('id');
 		$(_this).css('background', color);
-		
 	}
 
 	function hidePiece(index){
@@ -32,13 +37,6 @@ var Game = function(board){
 		},1000);
 	}
 
-	function checkToStopLoop(){
-		if (move >= positions.length)
-			clearInterval(triggerPattern);
-		else
-			move ++;
-	}
-
 	function displayPattern(){
 		showPiece(positions[move]);
 		var i = move;
@@ -46,12 +44,25 @@ var Game = function(board){
 		checkToStopLoop();
 	}
 
+	function checkToStopLoop(){
+		if (move >= positions.length)
+			clearInterval(triggerPattern);
+		else
+			move ++;
+	}
+
 	function checkGuesses(){
 		for(i=0; i < guesses.length; i++){
-			if (guesses[i] != positions[i])
-				console.log("bad");
-			else
-				Game.play();
+			if (guesses[i] != positions[i]){
+				flashBoard();
+				console.log("wrong");
+				resetGame();
+				setTimeout(gameSteps(), 1000);
+			}
+			if (i == positions.length -1){
+				console.log('correct! restart cycle');
+				gameSteps();
+			}
 		}
 	}
 	
@@ -63,12 +74,20 @@ var Game = function(board){
 		});
 	}
 
-	this.play = function(){
+	function resetGame(){
+		positions = [];
+	}
+
+	function gameSteps(){
 		move = 0;
 		guesses = [];
 		positions.push(randomInt());
 		triggerPattern = setInterval(displayPattern, 1000);
 		trackGuesses();
+	}
+
+	this.play = function(){
+		gameSteps();
 	};
 
 
@@ -84,8 +103,6 @@ $(function(){
 		e.preventDefault();
 
 		game.play();
-	
-		
 	});
 
 });
