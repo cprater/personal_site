@@ -25,23 +25,24 @@ var Game = function(board){
 		},1000);
 	}
 
-	function displayPattern(){
-		showPiece(positions[move]);
-		var i = move;
-		hidePattern(i);
-			
+	function checkToStopLoop(){
 		if (move >= positions.length)
 			clearInterval(triggerPattern);
 		else
 			move ++;
 	}
+
+	function displayPattern(){
+		showPiece(positions[move]);
+		var i = move;
+		hidePattern(i);
+		checkToStopLoop();
+	}
 	
 	this.play = function(){
 		move = 0;
 		positions.push(randomInt());
-		
 		triggerPattern = setInterval(displayPattern, 1000);
-		
 	};
 
 	
