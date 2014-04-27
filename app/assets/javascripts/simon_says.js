@@ -45,6 +45,15 @@ var Game = function(board){
 		triggerPattern = setInterval(displayPattern, 1000);
 	};
 
+	this.trackGuesses = function(){
+		guesses = [];
+		$(document).on('click', '.tile', function(){
+			guesses.push($(this).attr('id'));
+			
+			console.log(guesses);
+		});
+	};
+
 	
 };
 
@@ -57,6 +66,7 @@ $(function(){
 		e.preventDefault();
 
 		game.play();
+		game.trackGuesses();
 		
 	});
 
