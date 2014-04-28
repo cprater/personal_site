@@ -55,12 +55,10 @@ var Game = function(board){
 		for(i=0; i < guesses.length; i++){
 			if (guesses[i] != positions[i]){
 				flashBoard();
-				console.log("wrong");
 				resetGame();
 				setTimeout(gameSteps(), 1000);
 			}
 			if (i == positions.length -1){
-				console.log('correct! restart cycle');
 				gameSteps();
 			}
 		}
@@ -92,6 +90,7 @@ var Game = function(board){
 	}
 
 	this.play = function(){
+		resetGame();
 		gameSteps();
 	};
 
@@ -107,6 +106,7 @@ $(function(){
 	$(document).on('click', '#play-game', function(e){
 		e.preventDefault();
 
+		$(this).html('Restart');
 		game.play();
 	});
 
