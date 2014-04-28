@@ -17,11 +17,15 @@
 @import "base";
 
 
-@media (min-width: 1224px){
+@media (min-width: 1000px){
 	@import "big";
-	$tile-size: 50px;
+
+	$tile-size: 12em;
 	@import "simon-says";
 }
-@media (max-width: 1224px){
+@media (max-width: 1000px){
 	@import "small";
+
+	$tile-size: 12em;
+	@import "simon-says";
 }

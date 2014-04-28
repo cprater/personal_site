@@ -1,7 +1,11 @@
-@mixin wrapper-border {
-	border-left: 6em solid white;
-	border-right: 6em solid white;
-	border-bottom: 3em solid white;
+@mixin wrapper-border($size) {
+	border-left: $size solid white;
+	border-right: $size solid white;
+	border-bottom: $size / 2 solid white;
+}
+
+@mixin border-radius {
+
 }
 
 @mixin contact-list-floats{
@@ -49,7 +53,7 @@ td {
 
 
 .wrapper{
-	@include wrapper-border;
+	@include wrapper-border(6em);
 	@extend .center;
 	background-color: #EDEDED;	
 	padding: 1em;
