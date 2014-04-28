@@ -7,10 +7,10 @@
 }
 
 @mixin board-styling($size){
-	max-width: $size;
-	max-height: $size - .1em;
+	max-width: $size + .05em;
+	max-height: $size;
 	display: inline-block;
-	border: 2px solid black;
+	// border: 2px solid black;
 }
 
 @mixin centered{
@@ -22,19 +22,22 @@
 	bottom: 0;
 }
 
+
+
 .game{
+	margin: 1em 0;
 	color: black;
 	display: block;
 	font-family: 'Press Start 2P','cursive';
+
+	.score{
+		margin: 1em 0;
+	}
 
 	#play-game {
 		margin: 1em 0;
 		padding: .25em 2em;
 		border-radius: .5em;
-
-		&:visited {
-			color: green;
-		}
 	}
 
 	.wrapper & {
@@ -45,29 +48,46 @@
 
 .tile {
 	@include tile-styling($tile-size);
-	box-shadow: 0 0 0.25em #7E8385 inset;
+	// box-shadow: 0 0 0.25em #7E8385 inset;
 }
 
 .game-board {
-	$game-border-radius: 1em;
-	$tile-border-radius: $game-border-radius - .2em;
-	@include board-styling(($tile-size * 3) + .4em);
-	@include centered;
-	border-radius: $game-border-radius;
-	box-shadow: 0  0  0.5em black;
+	$tile-border-radius: .8em;
+	$outer-shadow-color: #7E8385;
+	@include board-styling(($tile-size * 3) + .35em);
 	& .tile:first-child {
 		border-top-left-radius: $tile-border-radius;
+		box-shadow: -0.1em -0.1em 0.5em $outer-shadow-color;
+	}
+
+	& .tile:nth-child(2){
+		box-shadow: 0 -0.1em 0.5em $outer-shadow-color;
 	}
 
 	& .tile:nth-child(3){
 		border-top-right-radius: $tile-border-radius;
+		box-shadow: 0.1em -0.1em 0.5em $outer-shadow-color;
+	}
+
+	& .tile:nth-child(4){
+		box-shadow: -0.1em 0 0.5em $outer-shadow-color;
+	}
+
+	& .tile:nth-child(6){
+		box-shadow: 0.1em 0 0.5em $outer-shadow-color;
 	}
 
 	& .tile:nth-child(7){
 		border-bottom-left-radius: $tile-border-radius;
+		box-shadow: -0.1em 0.1em 0.5em $outer-shadow-color;
+	}
+
+	& .tile:nth-child(8){
+		box-shadow: 0 0.1em 0.5em $outer-shadow-color;
 	}
 
 	& .tile:last-child {
 		border-bottom-right-radius: $tile-border-radius;
+		box-shadow: 0.1em 0.1em 0.5em $outer-shadow-color;
 	}
 }

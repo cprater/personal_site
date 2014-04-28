@@ -20,12 +20,12 @@
 @media (min-width: 1000px){
 	@import "big";
 
-	$tile-size: 12em;
+	$tile-size: 3em;
 	@import "simon-says";
 }
 @media (max-width: 1000px){
 	@import "small";
 
-	$tile-size: 12em;
+	$tile-size: 3em;
 	@import "simon-says";
 }
