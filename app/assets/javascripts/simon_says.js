@@ -56,7 +56,7 @@ var Game = function(board){
 			if (guesses[i] != positions[i]){
 				flashBoard();
 				resetGame();
-				setTimeout(gameSteps(), 1000);
+				gameSteps();
 			}
 			if (i == positions.length -1){
 				gameSteps();
@@ -94,7 +94,6 @@ var Game = function(board){
 		gameSteps();
 	};
 
-
 	
 };
 
@@ -106,7 +105,7 @@ $(function(){
 	$(document).on('click', '#play-game', function(e){
 		e.preventDefault();
 
-		$(this).html('Restart');
+		$(this).hide();
 		game.play();
 	});
 
