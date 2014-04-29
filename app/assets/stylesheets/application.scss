@@ -15,7 +15,6 @@
 @import "fonts";
 @import "colors";
 @import "base";
-@import "life-counter";
 
 
 @media (min-width: 1000px){
@@ -26,6 +25,7 @@
 }
 @media (max-width: 1000px){
 	@import "small";
+	@import "life-counter";
 
 	$tile-size: 3em;
 	@import "simon-says";
