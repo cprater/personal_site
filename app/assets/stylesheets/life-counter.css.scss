@@ -1,0 +1,35 @@
+@mixin player-styling {
+	border: 1px solid black;
+	padding: 5em;
+	font-size: 2em;
+	color: black;
+	font-family: 'MedievalSharp', 'cursive';
+}
+
+@mixin alter-life-button-styling{
+	margin: 2em;
+}
+
+.player1 {
+	@include player-styling;
+
+	& .add {
+		@include alter-life-button-styling;
+	}
+
+	& .minus {
+		@include alter-life-button-styling;	
+	}
+}
+
+.player2 {
+	@include player-styling;
+
+	& .add {
+		@include alter-life-button-styling;
+	}
+
+	& .minus {
+		@include alter-life-button-styling;	
+	}
+}
