@@ -3,21 +3,19 @@ function checkGameOver(life){
 		alert("you lose");
 }
 
-
-
 $(function(){
 
 	$(document).on('click', '.add', function(){
-		life = $(this).siblings('.life').html();
+		life = $(this).closest('.alter-life-buttons').siblings('.life').html();
 		life ++;
 		checkGameOver(life);
-		$(this).siblings('.life').html(life);
+		$(this).closest('.alter-life-buttons').siblings('.life').html(life);
 	});
 
 	$(document).on('click', '.minus', function(){
-		life = $(this).siblings('.life').html();
+		life = $(this).closest('.alter-life-buttons').siblings('.life').html();
 		life --;
 		checkGameOver(life);
-		$(this).siblings('.life').html(life);
+		$(this).closest('.alter-life-buttons').siblings('.life').html(life);
 	});
 });

@@ -1,35 +1,38 @@
 @mixin player-styling {
 	border: 1px solid black;
-	padding: 5em;
+	padding: 2em;
 	font-size: 2em;
 	color: black;
 	font-family: 'MedievalSharp', 'cursive';
+	text-align: center;
 }
 
 @mixin alter-life-button-styling{
 	margin: 2em;
 }
 
+.footer {
+	display: none;
+}
+
+.wrapper{
+	padding: 0;
+}
+
 .player1 {
 	@include player-styling;
 
-	& .add {
+	& .alter-life-buttons {
 		@include alter-life-button-styling;
 	}
 
-	& .minus {
-		@include alter-life-button-styling;	
-	}
 }
 
 .player2 {
 	@include player-styling;
 
-	& .add {
+	& .alter-life-buttons {
 		@include alter-life-button-styling;
 	}
 
-	& .minus {
-		@include alter-life-button-styling;	
-	}
 }
