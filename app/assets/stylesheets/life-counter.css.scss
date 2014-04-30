@@ -7,8 +7,8 @@
 	text-align: center;
 }
 
-@mixin alter-life-button-styling{
-	margin: 2em;
+@mixin life-button-styling{
+	margin: 2em 2em 0 2em;
 }
 
 .footer {
@@ -19,11 +19,20 @@
 	padding: 0;
 }
 
+.life-counter {
+	min-width: 100%;
+	min-height: 100%;
+}
+
 .player1 {
 	@include player-styling;
 
-	& .alter-life-buttons {
-		@include alter-life-button-styling;
+	& .life-button {
+		@include life-button-styling;
+	}
+
+	& .life {
+		@include life-button-styling;
 	}
 
 }
@@ -31,8 +40,12 @@
 .player2 {
 	@include player-styling;
 
-	& .alter-life-buttons {
-		@include alter-life-button-styling;
+	& .life-button {
+		@include life-button-styling;
+	}
+
+	& .life {
+		@include life-button-styling;
 	}
 
 }
