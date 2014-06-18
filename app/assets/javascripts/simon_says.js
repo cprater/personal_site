@@ -105,7 +105,7 @@ $(function(){
 	$(document).on('click', '#play-game', function(e){
 		e.preventDefault();
 
-		$(this).hide();
+		$(this).text('Reset');
 		game.play();
 	});
 
