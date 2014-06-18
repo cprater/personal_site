@@ -97,8 +97,14 @@ td {
 	padding-bottom: 0.5em;
 }
 
-.projects tr:first-child td:last-child{
+.projects tr > td:last-child{
 	padding-bottom: 1em;
+}
+
+.projects tr {
+	padding-bottom: 1em;
+
+	
 }
 
 
