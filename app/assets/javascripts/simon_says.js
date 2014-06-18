@@ -44,6 +44,12 @@ var Game = function(board){
 		checkToStopLoop();
 	}
 
+	function clearBoard(){
+		for (i=0; i < gameBoard.length; i++ ){
+			$(gameBoard[i]).css('background', 'red');
+		}
+	}
+
 	function checkToStopLoop(){
 		if (move >= positions.length)
 			clearInterval(triggerPattern);
@@ -104,6 +110,8 @@ $(function(){
 
 	$(document).on('click', '#play-game', function(e){
 		e.preventDefault();
+		// game.clearBoard();
+
 
 		$(this).text('Reset');
 		game.play();
